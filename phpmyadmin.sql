@@ -87,7 +87,7 @@ CREATE TABLE `advanced_vehicles_upgrades` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-CREATE TABLE `mp_arme` (
+CREATE TABLE `vrp_arme` (
   `user_id` int(11) NOT NULL,
   `clasa` varchar(100) DEFAULT NULL,
   `weapon` varchar(100) DEFAULT NULL,
@@ -101,10 +101,10 @@ CREATE TABLE `mp_arme` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mp_business`
+-- Tabellenstruktur für TabellE `vrp_business`
 --
 
-CREATE TABLE `mp_business` (
+CREATE TABLE `vrp_business` (
   `id` int(255) NOT NULL,
   `x` float NOT NULL,
   `y` float NOT NULL,
@@ -126,10 +126,10 @@ CREATE TABLE `mp_business` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mp_srv_data`
+-- Tabellenstruktur für TabellE `vrp_srv_data`
 --
 
-CREATE TABLE `mp_srv_data` (
+CREATE TABLE `vrp_srv_data` (
   `dkey` varchar(255) NOT NULL DEFAULT '',
   `dvalue` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -137,10 +137,10 @@ CREATE TABLE `mp_srv_data` (
 
 
 --
--- Tabellenstruktur für Tabelle `mp_turfs`
+-- Tabellenstruktur für TabellE `vrp_turfs`
 --
 
-CREATE TABLE `mp_turfs` (
+CREATE TABLE `vrp_turfs` (
   `id` int(255) NOT NULL,
   `x` float NOT NULL,
   `y` float NOT NULL,
@@ -155,10 +155,10 @@ CREATE TABLE `mp_turfs` (
 
 
 --
--- Tabellenstruktur für Tabelle `mp_users`
+-- Tabellenstruktur für TabellE `vrp_users`
 --
 
-CREATE TABLE `mp_users` (
+CREATE TABLE `vrp_users` (
   `id` int(11) NOT NULL,
   `whitelisted` tinyint(1) DEFAULT NULL,
   `banned` tinyint(1) DEFAULT 0,
@@ -214,10 +214,10 @@ CREATE TABLE `mp_users` (
 
 
 --
--- Tabellenstruktur für Tabelle `mp_user_business`
+-- Tabellenstruktur für TabellE `vrp_user_business`
 --
 
-CREATE TABLE `mp_user_business` (
+CREATE TABLE `vrp_user_business` (
   `user_id` int(11) NOT NULL DEFAULT 0,
   `name` varchar(30) DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -229,10 +229,10 @@ CREATE TABLE `mp_user_business` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mp_user_data`
+-- Tabellenstruktur für TabellE `vrp_user_data`
 --
 
-CREATE TABLE `mp_user_data` (
+CREATE TABLE `vrp_user_data` (
   `user_id` int(11) NOT NULL,
   `dkey` varchar(255) NOT NULL,
   `dvalue` text DEFAULT NULL
@@ -241,10 +241,10 @@ CREATE TABLE `mp_user_data` (
 
 
 --
--- Tabellenstruktur für Tabelle `mp_user_homes`
+-- Tabellenstruktur für TabellE `vrp_user_homes`
 --
 
-CREATE TABLE `mp_user_homes` (
+CREATE TABLE `vrp_user_homes` (
   `user_id` int(11) NOT NULL DEFAULT 0,
   `home` varchar(255) NOT NULL,
   `number` int(11) DEFAULT NULL
@@ -253,10 +253,10 @@ CREATE TABLE `mp_user_homes` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mp_user_identities`
+-- Tabellenstruktur für TabellE `vrp_user_identities`
 --
 
-CREATE TABLE `mp_user_identities` (
+CREATE TABLE `vrp_user_identities` (
   `user_id` int(11) NOT NULL,
   `registration` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -268,27 +268,27 @@ CREATE TABLE `mp_user_identities` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mp_user_ids`
+-- Tabellenstruktur für TabellE `vrp_user_ids`
 --
 
-CREATE TABLE `mp_user_ids` (
+CREATE TABLE `vrp_user_ids` (
   `id` int(255) NOT NULL,
   `identifier` varchar(255) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Daten für Tabelle `mp_user_ids`
+-- Daten für TabellE `vrp_user_ids`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mp_user_vehicles`
+-- Tabellenstruktur für TabellE `vrp_user_vehicles`
 --
 
-CREATE TABLE `mp_user_vehicles` (
+CREATE TABLE `vrp_user_vehicles` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `vehicle` varchar(255) NOT NULL DEFAULT '',
@@ -374,49 +374,49 @@ ALTER TABLE `advanced_vehicles_upgrades`
   ADD PRIMARY KEY (`vehicle`,`user_id`,`plate`,`class`) USING BTREE;
 
 
-ALTER TABLE `mp_business`
+ALTER TABLE `vrp_business`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `mp_srv_data`
+-- Indizes für die TabellE `vrp_srv_data`
 --
-ALTER TABLE `mp_srv_data`
+ALTER TABLE `vrp_srv_data`
   ADD PRIMARY KEY (`dkey`);
 
 --
--- Indizes für die Tabelle `mp_turfs`
+-- Indizes für die TabellE `vrp_turfs`
 --
-ALTER TABLE `mp_turfs`
+ALTER TABLE `vrp_turfs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `mp_users`
+-- Indizes für die TabellE `vrp_users`
 --
-ALTER TABLE `mp_users`
+ALTER TABLE `vrp_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `mp_user_business`
+-- Indizes für die TabellE `vrp_user_business`
 --
-ALTER TABLE `mp_user_business`
+ALTER TABLE `vrp_user_business`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indizes für die Tabelle `mp_user_data`
+-- Indizes für die TabellE `vrp_user_data`
 --
-ALTER TABLE `mp_user_data`
+ALTER TABLE `vrp_user_data`
   ADD PRIMARY KEY (`user_id`,`dkey`);
 
 --
--- Indizes für die Tabelle `mp_user_homes`
+-- Indizes für die TabellE `vrp_user_homes`
 --
-ALTER TABLE `mp_user_homes`
+ALTER TABLE `vrp_user_homes`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indizes für die Tabelle `mp_user_ids`
+-- Indizes für die TabellE `vrp_user_ids`
 --
-ALTER TABLE `mp_user_ids`
+ALTER TABLE `vrp_user_ids`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_2` (`id`),
   ADD KEY `fk_user_ids_users` (`user_id`),
@@ -424,9 +424,9 @@ ALTER TABLE `mp_user_ids`
   ADD KEY `identifier` (`identifier`);
 
 --
--- Indizes für die Tabelle `mp_user_vehicles`
+-- Indizes für die TabellE `vrp_user_vehicles`
 --
-ALTER TABLE `mp_user_vehicles`
+ALTER TABLE `vrp_user_vehicles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -443,30 +443,30 @@ ALTER TABLE `mp_user_vehicles`
 ALTER TABLE `advanced_vehicles_services`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `mp_business`
+ALTER TABLE `vrp_business`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT für Tabelle `mp_turfs`
+-- AUTO_INCREMENT für TabellE `vrp_turfs`
 --
-ALTER TABLE `mp_turfs`
+ALTER TABLE `vrp_turfs`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT für Tabelle `mp_users`
+-- AUTO_INCREMENT für TabellE `vrp_users`
 --
-ALTER TABLE `mp_users`
+ALTER TABLE `vrp_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT für Tabelle `mp_user_ids`
+-- AUTO_INCREMENT für TabellE `vrp_user_ids`
 --
-ALTER TABLE `mp_user_ids`
+ALTER TABLE `vrp_user_ids`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT für Tabelle `mp_user_vehicles`
+-- AUTO_INCREMENT für TabellE `vrp_user_vehicles`
 --
-ALTER TABLE `mp_user_vehicles`
+ALTER TABLE `vrp_user_vehicles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
